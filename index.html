@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172538">
+  <title>提瓦特任务树 · 剧情实录索引</title>
+  <link rel="stylesheet" href="ui/theme.css">
+  <link rel="stylesheet" href="task-tree.css">
+  <script defer src="data/task-tree-data.js"></script>
+  <script defer src="task-graph-layout.js"></script>
+  <script defer src="ui/task-view.js"></script>
+  <script defer src="task-tree.js"></script>
+</head>
+<body class="tree-app">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-copy"><strong>提瓦特剧情档案</strong></span></a>
+    <div class="topbar-actions"><button class="icon-button" id="treeTheme" type="button" aria-label="切换明暗主题">◐</button></div>
+  </header>
+  <main class="tree-layout">
+    <section class="tree-stage" aria-labelledby="treeTitle">
+      <div class="journey-hero">
+        <div class="tree-heading"><h1 id="treeTitle">提瓦特任务树</h1></div>
+        <div class="tree-stats" id="treeStats" aria-label="目录统计"></div>
+      </div>
+      <div class="tree-controls">
+        <label class="tree-search">搜索<input id="treeSearch" type="search" placeholder="任务、角色或子任务" autocomplete="off"></label>
+        <div class="tree-selects">
+          <label>跳转版本<select id="versionNav" aria-label="跳转至版本"></select></label>
+          <label>类型<select id="treeKind"><option value="all">全部任务</option></select></label>
+          <label>地区<select id="treeRegion"><option value="all">全部地区</option></select></label>
+          <label>我的进度<select id="treeProgress"><option value="all">全部进度</option><option value="todo">未看 / 未完成</option><option value="done">已看 / 已完成</option></select></label>
+          <button id="treeReset" type="button">重置</button>
+        </div>
+      </div>
+      <div class="map-legend"><div class="quest-legend" id="questLegend" aria-label="任务类型颜色"></div><span class="order-note">前序在上 · 后续在下</span></div>
+      <div class="tree-results-head"><span id="treeResultCount" aria-live="polite"></span><button id="collapseTree" type="button">收起全部版本</button></div>
+      <div class="graph-toolbar"><span>拖动平移 · 点击查看 · Ctrl/⌘+滚轮缩放</span><label>缩放 <input id="graphZoom" type="range" min="1" max="125" step="1" value="85"><output id="graphZoomValue">85%</output></label><button id="graphFit" type="button">全图</button><button id="graphHome" type="button">回到起点</button></div>
+      <div class="graph-viewport" id="graphViewport" tabindex="0" aria-label="任务流程图，可滚动或拖动空白处平移"><div id="graphExtent"><div id="questTree"></div></div></div>
+      <p id="progressStorageNote" class="progress-note" role="status">勾选进度保存在当前浏览器，不会跨设备同步。</p>
+      <noscript>请启用 JavaScript 以浏览任务树，也可以查看 data/task-tree.json。</noscript>
+    </section>
+    <aside class="quest-detail" id="questDetail" aria-label="选中任务详情" tabindex="-1"></aside>
+  </main>
+</body>
+</html>

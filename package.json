@@ -1,0 +1,11 @@
+{
+  "name": "teyvat-task-archive",
+  "private": true,
+  "description": "原神任务树与剧情实录元数据索引",
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs"
+  },
+  "dependencies": {
+    "opencc-js": "1.4.2"
+  }
+}

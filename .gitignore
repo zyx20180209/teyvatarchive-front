@@ -1,0 +1,6 @@
+node_modules/
+data/.task-insert.lock
+data/.*.tmp
+data/admin-backups/
+__pycache__/
+dist/
